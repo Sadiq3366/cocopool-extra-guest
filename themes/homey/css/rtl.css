@@ -224,7 +224,7 @@ body {
 .display-inline-block, .social-icons a, .breadcrumb li:after, .property-calendar > .homey_month_wrap .current-day,
 .property-calendar-hourly > .homey_month_wrap .current-day, .page-links .page-links-title, .page-links span,
 .page-links a, .pagination-main a, .map-search, .map-btn, .top-contact-address li,
-.top-slogan li, .crncy-lang-block > li a, .crncy-lang-block > li, .mixed-search-panel .nav-tabs > li, .filters .control, .pets-calculator .control, .adults-calculator .quantity-calculator,
+.top-slogan li, .crncy-lang-block > li a, .crncy-lang-block > li, .mixed-search-panel .nav-tabs > li, .filters .control, .pets-calculator .control, .adults-calculator .quantity-calculator,.extra-calculator .quantity-calculator,
 .children-calculator .quantity-calculator, .mobile-nav-wrap a,
 .user-nav-wrap a, .header-type-3 .account-loggedin, .account-login .login-register, .account-loggedin .user-image, .navi .homey-megamenu-wrap > .sub-menu .sub-menu a:before,
 .listing-navi .homey-megamenu-wrap > .sub-menu .sub-menu a:before, .navi .homey-megamenu-wrap > .sub-menu > li,
@@ -412,6 +412,11 @@ body {
 .gform_wrapper .guest-apply-btn .button, .guest-apply-btn .gform_button, .pets-calculator-control-wrap, .adults-calculator .btn, .adults-calculator .wpcf7-submit,
 .adults-calculator .gform_wrapper .button,
 .gform_wrapper .adults-calculator .button, .adults-calculator .gform_button,
+
+.extra-calculator .btn, .extra-calculator .wpcf7-submit,
+.extra-calculator .gform_wrapper .button,
+.gform_wrapper .extra-calculator .button, .extra-calculator .gform_button,
+
 .children-calculator .btn,
 .children-calculator .wpcf7-submit,
 .children-calculator .gform_wrapper .button,
@@ -7490,9 +7495,9 @@ button:active, button:hover, button:focus {
 	padding-left: 0;
 }
 
-/* search modules
+/* search modules 
 /* ----------------------------------------------------------- */
-.adults-calculator .quantity-calculator,
+.adults-calculator .quantity-calculator,.extra-calculator .quantity-calculator,
 .children-calculator .quantity-calculator {
 	font-size: 16px;
 }
@@ -7557,6 +7562,11 @@ button:active, button:hover, button:focus {
 .adults-calculator .btn, .adults-calculator .wpcf7-submit,
 .adults-calculator .gform_wrapper .button,
 .gform_wrapper .adults-calculator .button, .adults-calculator .gform_button,
+
+.extra-calculator .btn, .extra-calculator .wpcf7-submit,
+.extra-calculator .gform_wrapper .button,
+.gform_wrapper .extra-calculator .button, .extra-calculator .gform_button,
+
 .children-calculator .btn,
 .children-calculator .wpcf7-submit,
 .children-calculator .gform_wrapper .button,
@@ -7576,6 +7586,11 @@ button:active, button:hover, button:focus {
 .adults-calculator .btn:last-of-type, .adults-calculator .wpcf7-submit:last-of-type,
 .adults-calculator .gform_wrapper .button:last-of-type,
 .gform_wrapper .adults-calculator .button:last-of-type, .adults-calculator .gform_button:last-of-type,
+
+.extra-calculator .btn:last-of-type, .extra-calculator .wpcf7-submit:last-of-type,
+.extra-calculator .gform_wrapper .button:last-of-type,
+.gform_wrapper .extra-calculator .button:last-of-type, .extra-calculator .gform_button:last-of-type,
+
 .children-calculator .btn:last-of-type,
 .children-calculator .wpcf7-submit:last-of-type,
 .children-calculator .gform_wrapper .button:last-of-type,
@@ -7587,6 +7602,11 @@ button:active, button:hover, button:focus {
 .adults-calculator .btn:first-of-type, .adults-calculator .wpcf7-submit:first-of-type,
 .adults-calculator .gform_wrapper .button:first-of-type,
 .gform_wrapper .adults-calculator .button:first-of-type, .adults-calculator .gform_button:first-of-type,
+
+.extra-calculator .btn:first-of-type, .extra-calculator .wpcf7-submit:first-of-type,
+.extra-calculator .gform_wrapper .button:first-of-type,
+.gform_wrapper .extra-calculator .button:first-of-type, .extra-calculator .gform_button:first-of-type,
+
 .children-calculator .btn:first-of-type,
 .children-calculator .wpcf7-submit:first-of-type,
 .children-calculator .gform_wrapper .button:first-of-type,
@@ -7601,12 +7621,12 @@ button:active, button:hover, button:focus {
 	line-height: 42px;
 }
 
-.adults-calculator,
+.adults-calculator,.extra-calculator
 .children-calculator {
 	margin-bottom: 10px;
 	line-height: 44px;
 }
-.adults-calculator .quantity-calculator,
+.adults-calculator .quantity-calculator, .extra-calculator .quantity-calculator,
 .children-calculator .quantity-calculator {
 	border: none;
 	width: 32px;

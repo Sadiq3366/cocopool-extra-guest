@@ -5,12 +5,24 @@ $address        = get_post_meta( get_the_ID(), $homey_prefix.'listing_address', 
 $bedrooms       = get_post_meta( get_the_ID(), $homey_prefix.'listing_bedrooms', true );
 $guests         = get_post_meta( get_the_ID(), $homey_prefix.'guests', true );
 
+$total_guests = $guests;
 $allow_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'allow_additional_guests', true );
 $num_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'num_additional_guests', true );
-
+$total_extra='';
 if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
     $guests = $guests + $num_additional_guests;
+    $total_extra = $num_additional_guests;
 }
+if(!empty($total_extra)) {
+    $total_extra = ' (+'.$total_extra.' Extra)'; 
+}
+
+// $allow_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'allow_additional_guests', true );
+// $num_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'num_additional_guests', true );
+
+// if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
+//     $guests = $guests + $num_additional_guests;
+// }
 
 $beds           = get_post_meta( get_the_ID(), $homey_prefix.'beds', true );
 $baths          = get_post_meta( get_the_ID(), $homey_prefix.'baths', true );
@@ -110,7 +122,7 @@ $homey_permalink = homey_listing_permalink();
                 <?php if($cgl_guests!= 0 && $guests != '') { ?>
                 <li>
                     <?php echo ''.$guests_icon; ?>
-                    <span class="total-guests"><?php echo esc_attr($guests); ?></span> <span class="item-label"><?php echo esc_attr(homey_option('glc_guests_label'));?></span>
+                    <span class="total-guests"><?php echo esc_attr($total_guests). $total_extra; ?></span> <span class="item-label"><?php //echo esc_attr(homey_option('glc_guests_label'));?></span>
                 </li>
                 <?php } ?>
 

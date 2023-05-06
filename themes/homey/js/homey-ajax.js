@@ -1104,16 +1104,21 @@ jQuery(document).ready(function ($) {
 
                 var total_guests = adult_guest + child_guest;
 
-                if( (allow_additional_guests != 'yes') && (total_guests == allowed_guests_num)) {
+                if( (total_guests == allowed_guests_num) ) {
                     $('.adult_plus').attr("disabled", true);
                     $('.child_plus').attr("disabled", true);
-
-                } else if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
-                    if(num_additional_guests !== '') {
-                        $('.adult_plus').attr("disabled", true);
-                        $('.child_plus').attr("disabled", true);
+                    if((allow_additional_guests == 'yes'))
+                    {
+                      $('.extra_guest').css("display", "block");
                     }
-                }
+
+                } 
+                // else if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
+                //     if(num_additional_guests !== '') {
+                //         $('.adult_plus').attr("disabled", true);
+                //         $('.child_plus').attr("disabled", true);
+                //     }
+                // }
 
                 $('input[name="guests"]').val(total_guests);
             });
@@ -1131,10 +1136,67 @@ jQuery(document).ready(function ($) {
 
                 var total_guests = adult_guest + child_guest;
                 $('input[name="guests"]').val(total_guests);
+                var extra_guest = 0;
+                $('.homey_extra').text(extra_guest);
+                $('input[name="extra_guest"]').val(extra_guest);
 
                 $('.adult_plus').removeAttr("disabled");
                 $('.child_plus').removeAttr("disabled");
+                $('.extra_plus').removeAttr("disabled");
+                $('.extra_guest').css("display", "none");
             });
+
+
+            //Extra guest price managing J.Sadiq
+            $('.extra_plus').on('click', function(e) {
+                e.preventDefault();
+                var guests = parseInt($('input[name="guests"]').val());
+                var extra_guest = parseInt($('input[name="extra_guest"]').val());
+                var adult_guest = parseInt($('input[name="adult_guest"]').val());
+                var child_guest = parseInt($('input[name="child_guest"]').val());
+
+
+                extra_guest++;
+                $('.homey_extra').text(extra_guest);
+                $('input[name="extra_guest"]').val(extra_guest);
+
+                var total_guests = extra_guest + adult_guest + child_guest;
+
+                 if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
+                    if(num_additional_guests !== '') { 
+                        $('.adult_plus').attr("disabled", true);
+                        $('.child_plus').attr("disabled", true);
+                        $('.extra_plus').attr("disabled", true);
+                    }
+                }
+
+                $('input[name="guests"]').val(total_guests);
+
+            });
+
+            $('.extra_minus').on('click', function(e) {
+                e.preventDefault();
+                var guests = parseInt($('input[name="guests"]').val());
+                var child_guest = parseInt($('input[name="child_guest"]').val());
+                var adult_guest = parseInt($('input[name="adult_guest"]').val());
+                var extra_guest = parseInt($('input[name="extra_guest"]').val());
+                
+
+                if (extra_guest == 0) return;
+                extra_guest--;
+                $('.homey_extra').text(extra_guest);
+                $('input[name="extra_guest"]').val(extra_guest);
+
+                var total_guests = extra_guest + adult_guest + child_guest;
+
+                $('input[name="guests"]').val(total_guests);
+
+                $('.extra_plus').removeAttr("disabled");
+                
+
+            });
+
+        
 
             $('.child_plus').on('click', function(e) {
                 e.preventDefault();
@@ -1148,16 +1210,21 @@ jQuery(document).ready(function ($) {
 
                 var total_guests = child_guest + adult_guest;
 
-                if( (allow_additional_guests != 'yes') && (total_guests == allowed_guests_num)) {
+                if( (total_guests == allowed_guests_num) ) {
                     $('.adult_plus').attr("disabled", true);
                     $('.child_plus').attr("disabled", true);
-
-                } else if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
-                    if(num_additional_guests !== '') {
-                        $('.adult_plus').attr("disabled", true);
-                        $('.child_plus').attr("disabled", true);
+                    if((allow_additional_guests == 'yes'))
+                    {
+                      $('.extra_guest').css("display", "block");
                     }
-                }
+
+                } 
+                // else if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
+                //     if(num_additional_guests !== '') {
+                //         $('.adult_plus').attr("disabled", true);
+                //         $('.child_plus').attr("disabled", true);
+                //     }
+                // }
 
                 $('input[name="guests"]').val(total_guests);
 
@@ -1178,8 +1245,14 @@ jQuery(document).ready(function ($) {
 
                 $('input[name="guests"]').val(total_guests);
 
+                var extra_guest = 0;
+                $('.homey_extra').text(extra_guest);
+                $('input[name="extra_guest"]').val(extra_guest);
+
                 $('.adult_plus').removeAttr("disabled");
                 $('.child_plus').removeAttr("disabled");
+                $('.extra_plus').removeAttr("disabled");
+                $('.extra_guest').css("display", "none");
 
             });
         }

@@ -45,7 +45,7 @@ if(!empty($room_type) && !empty($listing_type)) {
                         <?php if(!empty($num_additional_guests)) { ?>
                         <li>
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            <?php echo esc_html__('No of Guests', 'homey'); ?>: <strong><?php echo esc_attr($num_additional_guests); ?></strong>
+                            <?php echo esc_html__('Extra Guests', 'homey'); ?>: <strong><?php echo esc_attr($num_additional_guests); ?></strong>
                         </li>
                         <?php } ?>
 

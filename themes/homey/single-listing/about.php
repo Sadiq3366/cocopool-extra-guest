@@ -1,14 +1,17 @@
 <?php
 global $post, $homey_prefix, $homey_local, $hide_labels;
 $guests     = homey_get_listing_data('guests');
-
+$total_guests = $guests;
 $allow_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'allow_additional_guests', true );
 $num_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'num_additional_guests', true );
-
+$total_extra='';
 if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
     $guests = $guests + $num_additional_guests;
+    $total_extra = $num_additional_guests;
 }
-
+if(!empty($total_extra)) {
+    $total_extra = ' (+'.$total_extra.' Extra)'; 
+}
 $num_additional_guests = homey_get_field_meta('num_additional_guests');
 
 $bedrooms   = homey_get_listing_data('listing_bedrooms');
@@ -72,7 +75,8 @@ if($icon_type == 'fontawesome_icon') {
                 <?php echo ''.$acco_icon; ?>
             </div>
             <div><?php echo esc_attr(homey_option('sn_accom_label')); ?></div>
-            <div><strong><?php echo esc_attr($guests).' > '.$num_additional_guests; ?> <?php echo esc_attr(homey_option('sn_guests_label')); ?></strong></div>
+            <!-- <div><strong><?php //echo esc_attr($guests).' > '.$num_additional_guests; ?> <?php //echo esc_attr(homey_option('sn_guests_label')); ?></strong></div> -->
+            <div><strong><?php echo esc_attr($total_guests). $total_extra  ?> <?php echo esc_attr(homey_option('sn_guests_label')); ?></strong></div>
         </div>
         <?php } ?>
 

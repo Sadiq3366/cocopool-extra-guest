@@ -440,3 +440,27 @@ div#homey-halfmap, div#homey_sticky_map, div#banner-map {
     width: 100%;
     margin-bottom: 10px;
 }
+.extra_guest{
+  display: none;
+}
+.adult-label{
+    margin-top: 17px;
+    position: absolute;
+    margin-left: -40px;
+    font-size: smaller;
+    font-weight: 300;
+}
+.extra-label{
+  margin-top: 17px;
+  position: absolute;
+  margin-left: -74px;
+  font-size: smaller;
+  font-weight: 300;
+}
+.child-label{
+  margin-top: 17px;
+  position: absolute;
+  margin-left: -52px;
+  font-size: smaller;
+  font-weight: 300;
+}
