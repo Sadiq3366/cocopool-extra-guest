@@ -24,27 +24,27 @@ if($booking_hide_fields['guests'] != 1) {
 	<div class="search-guests-wrap single-form-guests-js clearfix">
 	
 		<div class="adults-calculator">
-			<span class="quantity-calculator homey_adult"><?php echo esc_attr($guest_val); ?></span>
-			<span class="calculator-label"><?php echo esc_attr(homey_option('srh_adults_label')); ?></span>
-			<span class="adult-label"><?php echo esc_attr('Máx(con niño)','homey').' '.$guest; ?></span>
+			<span class="calculator-label"><?php echo esc_html__('Invitados','homey'); //esc_attr(homey_option('srh_adults_label')); ?></span>
+			<!-- <span class="adult-label"><?php //echo esc_attr('Máx(con niño)','homey').' '.$guest; ?></span> -->
 			<button class="adult_plus btn btn-secondary-outlined" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			<span class="quantity-calculator homey_adult"><?php echo esc_attr($guest_val); ?></span>
 			<button class="adult_minus btn btn-secondary-outlined" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
 		</div>
 
 		<div class="extra-calculator extra_guest">
-			<span class="quantity-calculator homey_extra"><?php echo esc_attr($guest_val); ?></span>
-			<span class="calculator-label"><?php echo esc_attr('Extra Guest','homey'); ?></span>
-			<span class="extra-label"><?php echo homey_formatted_price($extra_guest_price).', '.esc_attr('por adulto','homey') ?></span>
+			<span class="calculator-label"><?php echo esc_attr('Invitados extras','homey'); ?></span>
+			<span class="extra-label"><?php echo homey_formatted_price($extra_guest_price).', '.esc_attr('por invitado','homey') ?></span>
 			<button class="extra_plus btn btn-secondary-outlined" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			<span class="quantity-calculator homey_extra"><?php echo esc_attr($guest_val); ?></span>
 			<button class="extra_minus btn btn-secondary-outlined" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
 		</div>
 
 		<?php if($booking_hide_fields['children'] != 1) { ?>
 		<div class="children-calculator">
-			<span class="quantity-calculator homey_child">0</span>
-			<span class="calculator-label"><?php echo esc_attr(homey_option('srh_child_label')); ?></span>
-			<span class="child-label"><?php echo esc_attr('Máx(con adulto)','homey').' '.$guest; ?></span>
+			<span class="calculator-label"><?php echo esc_html__('Bebés','homey'); //esc_attr(homey_option('srh_child_label')); ?></span>
+			<span class="child-label"><?php echo esc_attr('Hasta 3 años','homey')?></span>
 			<button class="child_plus btn btn-secondary-outlined" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			<span class="quantity-calculator homey_child">0</span>
 			<button class="child_minus btn btn-secondary-outlined" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
 		</div>
 		<?php } ?>
