@@ -47,6 +47,14 @@ jQuery(document).ready(function ($) {
 
         var allowed_guests_plus_additional = parseInt(allowed_guests_num) + parseInt(num_additional_guests);
 
+
+        if( allowed_guests_num > 5 )
+        {
+            allowed_guests_num = allowed_guests_num - 5;
+            num_additional_guests = num_additional_guests + allowed_guests_num;
+            allowed_guests_num = 5;
+        }
+        
         var compare_url = HOMEY_ajax_vars.compare_url;
         var add_compare = HOMEY_ajax_vars.add_compare;
         var remove_compare = HOMEY_ajax_vars.remove_compare;

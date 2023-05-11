@@ -830,6 +830,12 @@ if(!function_exists('homey_get_hourly_prices')) {
             if( $guests > $listing_guests) {
                 $additional_guests = $guests - $listing_guests;
 
+                if($guests > 5)
+                {
+                    $additional_guests = $guests - 5;
+                }
+                $guests = 5;
+
                 $guests_price_return = homey_calculate_guests_price($period_price, $check_in_unix, $additional_guests, $additional_guests_price);
 
                 $total_guests_price = $total_guests_price + $guests_price_return;
