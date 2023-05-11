@@ -13,6 +13,15 @@ if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
     $guests = $guests + $num_additional_guests;
     $total_extra = $num_additional_guests;
 }
+
+if( $total_guests > 5)
+{
+    $total_guests = $total_guests - 5;
+    
+    $total_extra = $total_extra + $total_guests;
+    $total_guests = 5;
+}
+
 if(!empty($total_extra)) {
     $total_extra = ' (+'.$total_extra.' Extra)'; 
 }

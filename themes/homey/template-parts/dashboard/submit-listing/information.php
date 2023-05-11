@@ -165,7 +165,8 @@ $openning_hours_list_array = explode( ',', $openning_hours_list );
                 <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label for="guests"> <?php echo esc_attr(homey_option('ad_no_of_guests')).homey_req('guests'); ?> </label>
-                        <input type="text" data-input-title="<?php echo esc_html__(esc_attr(homey_option('ad_no_of_guests')), 'homey'); ?>" name="guests" id="guests" <?php homey_required('guests'); ?> class="form-control" placeholder="<?php echo esc_attr(homey_option('ad_no_of_guests_plac')); ?>">
+                        <input type="text" disabled data-input-title="<?php echo esc_html__(esc_attr(homey_option('ad_no_of_guests')), 'homey'); ?>" name="guests_disable" id="guests_disable" <?php homey_required('guests'); ?> class="form-control" value="5" placeholder="<?php echo esc_attr(homey_option('ad_no_of_guests_plac')); ?>">
+                        <input type="hidden" name="guests" value="5" id="guests" >
                     </div>
                 </div>
                 <?php } ?>

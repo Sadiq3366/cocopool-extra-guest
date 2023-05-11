@@ -7,6 +7,11 @@ if( (isset($_GET['tab']) && $_GET['tab'] == 'information') || ($ttab == '')) {
 }
 $openning_hours_list = homey_option('openning_hours_list');
 $openning_hours_list_array = explode( ',', $openning_hours_list );
+$guest_value = get_post_meta($listing_data->ID,'homey_guests',true);
+if( $guest_value > 5)
+{
+    $guest_value = 5;
+}
 ?>
 <div id="information-tab" class="tab-pane fade <?php echo esc_attr($class); ?>">
     <div class="block-title visible-xs">
@@ -152,7 +157,8 @@ $openning_hours_list_array = explode( ',', $openning_hours_list );
             <div class="col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="guests"> <?php echo esc_attr(homey_option('ad_no_of_guests')).homey_req('guests'); ?> </label>
-                    <input type="text" name="guests" id="guests" <?php homey_required('guests'); ?> value="<?php homey_field_meta('guests'); ?>" class="form-control" placeholder="<?php echo esc_attr(homey_option('ad_no_of_guests_plac')); ?>">
+                    <input type="text" disabled name="guests_disable" id="guests" <?php homey_required('guests'); ?> value="<?php echo $guest_value ?>" class="form-control" placeholder="<?php echo esc_attr(homey_option('ad_no_of_guests_plac')); ?>">
+                    <input type="hidden" name="guests" value="5">
                 </div>
             </div>
             <?php } ?>
