@@ -1175,7 +1175,7 @@ if( !function_exists('homey_calculate_hourly_booking_cost_ajax') ) {
         }
 
         if(!empty($additional_guests)) {
-            $output .= '<li>'.esc_attr($additional_guests).' '.esc_attr($add_guest_label).' x '. homey_formatted_price($additional_guests_price) .' <span>'.homey_formatted_price($additional_guests_total_price).'</span></li>';
+            $output .= '<li>'.esc_attr($additional_guests).' '.esc_html__('invitados extra','homey').' x '. homey_formatted_price($additional_guests_price) .' <span>'.homey_formatted_price($additional_guests_total_price).'</span></li>';
         }
 
         if(!empty($prices_array['cleaning_fee']) && $prices_array['cleaning_fee'] != 0) {
