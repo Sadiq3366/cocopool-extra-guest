@@ -12,6 +12,7 @@ if( $guest_value > 5)
 {
     $guest_value = 5;
 }
+
 ?>
 <div id="information-tab" class="tab-pane fade <?php echo esc_attr($class); ?>">
     <div class="block-title visible-xs">

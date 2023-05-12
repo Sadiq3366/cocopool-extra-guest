@@ -12,9 +12,9 @@ if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
 
 if( $total_guests > 5)
 {
-    $total_guests = $total_guests - 5;
+    $total_guests = (int) $total_guests - 5;
 
-    $total_extra = $total_extra + $total_guests;
+    $total_extra = (int) $total_extra + (int) $total_guests;
     $total_guests = 5;
 }
 

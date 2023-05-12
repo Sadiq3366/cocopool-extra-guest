@@ -788,7 +788,7 @@ if(!function_exists('homey_get_hourly_prices')) {
         $listing_guests          = floatval( get_post_meta($listing_id, $prefix.'guests', true) );
         $hourly_price            = floatval( get_post_meta($listing_id, $prefix.'hour_price', true));
         $price_per_hour          = $hourly_price;
-
+        $listing_guests = 5;
         $weekends_price          = floatval( get_post_meta($listing_id, $prefix.'hourly_weekends_price', true) );
         $weekends_days           = get_post_meta($listing_id, $prefix.'weekends_days', true);
         //$priceWeek               = floatval( get_post_meta($listing_id, $prefix.'priceWeek', true) ); // 7 hours
@@ -833,6 +833,7 @@ if(!function_exists('homey_get_hourly_prices')) {
                 if($guests > 5)
                 {
                     $additional_guests = $guests - 5;
+                    
                 }
                 $guests = 5;
 
