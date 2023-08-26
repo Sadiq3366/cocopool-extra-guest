@@ -6146,7 +6146,7 @@ if(!function_exists('homey_booking_with_no_upfront')) {
         return true;
     }
 }
-
+ 
 add_action( 'wp_ajax_homey_decline_reservation', 'homey_decline_reservation' );
 if(!function_exists('homey_decline_reservation')) {
     function homey_decline_reservation() {

@@ -228,7 +228,7 @@ $end_hour = strtotime('24:00');
                         <div class="search-date-range main-search-date-range-js">
                             <div class="search-date-range-arrive search-date-hourly-arrive">
                                 <label class="animated-label"><?php echo esc_attr(homey_option('srh_arrive_label')); ?></label>
-                                <input name="arrive" autocomplete="off" value="<?php echo esc_attr($arrive); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
+                                <input name="arrive[]" multiple autocomplete="off" value="<?php echo esc_attr($arrive); ?>" type="text" class="form-control" placeholder="<?php echo esc_attr(homey_option('srh_arrive_label')); ?>">
                             </div>
                             <?php get_template_part ('template-parts/search/search-calendar'); ?>
                         </div>
@@ -239,7 +239,7 @@ $end_hour = strtotime('24:00');
                     ?>
                     <div class="search-hours-range clearfix">
                         <div class="search-hours-range-left search-hours-range-js">
-                            <select name="start" class="selectpicker" data-live-search="true" title="<?php echo esc_attr(homey_option('srh_starts_label'));?>">
+                            <select name="start[]" multiple class="selectpicker" data-live-search="true" title="<?php echo esc_attr(homey_option('srh_starts_label'));?>">
                                 <option value=""><?php echo esc_attr(homey_option('srh_starts_label'));?></option>
                                 <?php
                                 for ($halfhour = $start_hour;$halfhour <= $end_hour; $halfhour = $halfhour+30*60) {
@@ -249,7 +249,7 @@ $end_hour = strtotime('24:00');
                             </select>
                         </div>
                         <div class="search-hours-range-right search-hours-range-js">
-                            <select name="end" class="selectpicker" data-live-search="true" title="<?php echo esc_attr(homey_option('srh_ends_label'));?>">
+                            <select name="end[]" class="selectpicker" multiple data-live-search="true" title="<?php echo esc_attr(homey_option('srh_ends_label'));?>">
                                 <option value=""><?php echo esc_attr(homey_option('srh_ends_label'));?></option>
                                 <?php
                                 for ($halfhour = $start_hour;$halfhour <= $end_hour; $halfhour = $halfhour+30*60) {

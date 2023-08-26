@@ -16,7 +16,7 @@ $guest = isset($_GET['guest']) ? $_GET['guest'] : '';
 
 $lat = isset($_GET['lat']) ? $_GET['lat'] : '';
 $lng = isset($_GET['lng']) ? $_GET['lng'] : '';
-
+ 
 $class = '';
 if($advanced_filter != 1) {
 	$class = 'without-filters';

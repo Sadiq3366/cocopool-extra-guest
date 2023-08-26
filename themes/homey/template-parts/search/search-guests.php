@@ -13,6 +13,7 @@ $enable_pets = isset($search_fields['pets']) ? $search_fields['pets'] : 0;
 <div class="search-guests-wrap search-guests-wrap-js clearfix">
 	<input type="hidden" name="adult_guest" class="search_adult_guest" value="<?php echo isset($_GET['adult_guest']) ? (int) $_GET['adult_guest'] : 0 ?>">
 	<input type="hidden" name="child_guest" class="search_child_guest" value="<?php echo isset($_GET['child_guest']) ? (int) $_GET['child_guest'] : 0 ?>">
+	<input type="hidden" name="child_guest" class="search_extra_guest" value="<?php echo isset($_GET['extra_guest']) ? (int) $_GET['extra_guest'] : 0 ?>">
 
 	<?php if($adults != 1) { ?>
 	<div class="adults-calculator">
@@ -23,7 +24,14 @@ $enable_pets = isset($search_fields['pets']) ? $search_fields['pets'] : 0;
 	</div>
 	<?php } ?>
 
-	<?php if($children != 1) { ?>
+	<div class="extra-calculator">
+		<span class="quantity-calculator search_homey_extra"><?php echo isset($_GET['extra_guest']) ? (int) $_GET['extra_guest'] : 0 ?></span>
+		<span class="calculator-label"><?php echo esc_html__('extras','homey'); ?></span>
+		<button class="search_extra_plus btn btn-secondary-outlined" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+		<button class="search_extra_minus btn btn-secondary-outlined" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+	</div>
+
+	<?php if($children != 1 && 1==2) { ?>
 	<div class="children-calculator">
 		<span class="quantity-calculator search_homey_child"><?php echo isset($_GET['child_guest']) ? (int) $_GET['child_guest'] : 0 ?></span>
 		<span class="calculator-label"><?php echo esc_attr(homey_option('srh_child_label')); ?></span>

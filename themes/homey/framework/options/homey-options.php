@@ -4544,7 +4544,7 @@ Redux::setSection( $opt_name, array(
                 )
             ),
         ),
-        array(
+        array( 
             'id'      => 'hourly_search_visible_fields',
             'type'    => 'sorter',
             'title'   => esc_html__('Hourly Search Visible Fields', 'homey'),

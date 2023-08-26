@@ -618,6 +618,7 @@ if(!function_exists('check_listing_availability_for_hourly_search')) {
         $check_out_hour->modify('-30 minutes');
         $check_out_hour_unix = $check_out_hour->getTimestamp();
 
+        
         while ($check_in_hour_unix <= $check_out_hour_unix) {
             
             //echo $start_hour_unix.' ===== <br/>';

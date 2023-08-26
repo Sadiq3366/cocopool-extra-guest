@@ -253,7 +253,7 @@ if($hide_fields['price_postfix'] != 1) {
             <div class="col-sm-3 col-xs-6">
                 <div class="form-group">
                     <label for="num_additional_guests"><?php echo esc_html__('No of Guests', 'homey'); ?></label>
-                    <input type="text" value="<?php echo esc_attr($num_additional_guests); ?>" name="num_additional_guests" class="form-control" id="num_additional_guests" placeholder="<?php echo esc_html__('Number of additional guests allowed', 'homey'); ?>">
+                    <input type="text" value="<?php echo esc_attr($num_additional_guests); ?>" name="num_additional_guests" max="11" class="form-control" id="num_additional_guests" placeholder="<?php echo esc_html__('Number of additional guests allowed', 'homey'); ?>">
                 </div>
             </div>
             <?php } ?>

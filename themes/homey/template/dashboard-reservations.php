@@ -124,7 +124,7 @@ if ( isset($_GET['token']) && isset($_GET['PayerID']) ){
 
             $owner = homey_usermeta($listing_owner);
             $owner_email = $owner['email'];
-
+ 
             $email_args = array('reservation_detail_url' => reservation_detail_link($reservation_id) );
             homey_email_composer( $renter_email, 'booked_reservation', $email_args );
             homey_email_composer( $owner_email, 'admin_booked_reservation', $email_args );

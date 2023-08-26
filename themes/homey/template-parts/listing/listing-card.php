@@ -8,30 +8,32 @@ $guests         = get_post_meta( get_the_ID(), $homey_prefix.'guests', true );
 $total_guests = $guests;
 $allow_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'allow_additional_guests', true );
 $num_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'num_additional_guests', true );
-$total_extra='';
+$total_extra=0;
+$total_capacity = '';
+
 if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
     $guests = $guests + $num_additional_guests;
     $total_extra = $num_additional_guests;
 }
 
-if( $total_guests > 5 )
+if( $total_guests > 5)
 {
     $total_guests = (int) $total_guests - 5;
     
     $total_extra = (int) $total_extra + (int) $total_guests;
     $total_guests = 5;
 }
-
-if(!empty($total_extra)) {
-    $total_extra = ' (+'.$total_extra.' Extra)'; 
+if( $total_extra > 11 )
+{
+    $total_extra = 16;
+}else{
+    $total_extra = $total_extra + $total_guests;
 }
-
-// $allow_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'allow_additional_guests', true );
-// $num_additional_guests = get_post_meta( get_the_ID(), $homey_prefix.'num_additional_guests', true );
-
-// if( $allow_additional_guests == 'yes' && ! empty( $num_additional_guests ) ) {
-//     $guests = $guests + $num_additional_guests;
-// }
+if( $total_extra > 0 && $allow_additional_guests == 'yes' ) {  
+    $total_capacity = $total_guests.'pers. Min -'. $total_extra.'pers. Max';
+}else {
+    $total_capacity = $total_guests.'pers. Min -'. $total_guests.'pers. Max';
+}
 
 
 $beds           = get_post_meta( get_the_ID(), $homey_prefix.'beds', true );
@@ -116,7 +118,7 @@ $homey_permalink = homey_listing_permalink();
                         <?php if($cgl_guests!= 0 && $guests != '') { ?>
                         <li>
                             <?php echo ''.$guests_icon; ?>
-                            <span class="total-guests"><?php echo esc_attr($total_guests). $total_extra ; ?></span>
+                            <span class="total-guests"><?php echo esc_attr($total_capacity) ?></span>
                         </li>
                         <?php } ?>
                     </ul>

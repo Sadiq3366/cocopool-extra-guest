@@ -464,3 +464,7 @@ div#homey-halfmap, div#homey_sticky_map, div#banner-map {
   font-size: smaller;
   font-weight: 300;
 }
+
+.extra-calculator{
+  display: none;
+}

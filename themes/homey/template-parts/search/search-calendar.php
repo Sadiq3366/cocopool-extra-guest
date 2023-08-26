@@ -129,6 +129,8 @@ if(!function_exists('homeySearchGenerateMonth')) {
                 $dayClass = "future-day";
             }
 
+			
+
             $dateTimeStamp  = new DateTime($currentYear.'-'.$currentMonth.'-'.$day);
         	$dateTimeStamp = $dateTimeStamp->getTimestamp();
 

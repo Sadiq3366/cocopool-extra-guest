@@ -1415,16 +1415,26 @@
     $('.main-search-hourly-calendar-wrap ul li').on('click', function () {
         var $this = $(this);
 
-        // do nothing is date is disabled
-        if($this.hasClass('day-disabled')){
+        if ($this.hasClass('day-disabled')) {
             return false;
         }
-        var vl = $this.data('formatted-date');
 
-        // set value and trigger focus event manully
-        $('input[name="arrive"]').val(vl);
+        var selectedDates = [];
+
+        var currentDates = $('input[name="arrive[]"]').val().split(',').map(date => date.trim()).filter(date => date !== '');
+
+        var clickedDate = $this.data('formatted-date');
+
+        var index = currentDates.indexOf(clickedDate);
+
+        if (index === -1) {
+            selectedDates = currentDates.concat(clickedDate);
+        } else {
+            selectedDates = currentDates.filter(date => date !== clickedDate);
+        }
+
+        $('input[name="arrive[]"]').val(selectedDates.join(', '));
         $('.search-calendar').hide();
-
     });
 
     // Guests
@@ -1440,7 +1450,12 @@
             $('.search_adult_guest').val(adult_guest);
 
             var total_guests = adult_guest + child_guest;
+            if( total_guests == 5 )
+            {
+                $('.search_adult_plus').attr("disabled", true);
+                $('.extra-calculator').css("display", "block");
 
+            }
             $('input[name="guest"]').val(total_guests);
         });
 
@@ -1454,13 +1469,55 @@
             adult_guest--;
             $('.search_homey_adult').text(adult_guest);
             $('.search_adult_guest').val(adult_guest);
+            var extra_guest = 0;
+            $('.search_extra_guest').val(extra_guest);
+            $('.search_homey_extra').text(extra_guest);
 
             var total_guests = adult_guest + child_guest;
             $('input[name="guest"]').val(total_guests);
 
             $('.search_adult_plus').removeAttr("disabled");
             $('.search_child_plus').removeAttr("disabled");
+            $('.extra-calculator').css("display", "none");
         });
+
+        //extra guest search
+        
+        $('.search_extra_plus').on('click', function(e) {
+            e.preventDefault();
+            var guests = parseInt($('#guests').val()) || 0;
+            var adult_guest = parseInt($('.search_adult_guest').val());
+            var child_guest = parseInt($('.search_child_guest').val());
+            var extra_guest = parseInt($('.search_extra_guest').val());
+
+            extra_guest++;
+            $('.search_homey_extra').text(extra_guest);
+            $('.search_extra_guest').val(extra_guest);
+
+            var total_guests = adult_guest + child_guest + extra_guest;
+
+            $('input[name="guest"]').val(total_guests);
+        });
+
+        $('.search_extra_minus').on('click', function(e) {
+            e.preventDefault();
+            var guests = parseInt($('#guests').val()) || 0;
+            var adult_guest = parseInt($('.search_adult_guest').val());
+            var child_guest = parseInt($('.search_child_guest').val());
+            var extra_guest = parseInt($('.search_extra_guest').val());
+
+            if (extra_guest == 0) return;
+            extra_guest--;
+            $('.search_homey_extra').text(extra_guest);
+            $('.search_extra_guest').val(extra_guest);
+
+            var total_guests = adult_guest + child_guest + extra_guest;
+            $('input[name="guest"]').val(total_guests);
+
+            $('.search_adult_plus').removeAttr("disabled");
+            $('.search_child_plus').removeAttr("disabled");
+        });
+
 
         $('.search_child_plus').on('click', function(e) {
             e.preventDefault();

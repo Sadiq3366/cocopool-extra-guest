@@ -13,7 +13,7 @@ if($guest_val > 0) {
 	$guest_val = '0';
 	$guest_val2 = '';
 }
-$total_guest = 10;
+
 if($booking_hide_fields['guests'] != 1) {
 ?>
 <div class="search-guests single-guests-js">

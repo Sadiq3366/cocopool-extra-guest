@@ -50,10 +50,18 @@ jQuery(document).ready(function ($) {
 
         if( allowed_guests_num > 5 )
         {
-            allowed_guests_num = allowed_guests_num - 5;
-            num_additional_guests = num_additional_guests + allowed_guests_num;
             allowed_guests_num = 5;
+
+            if( allowed_guests_plus_additional > 16 )
+            {
+                allowed_guests_plus_additional = 16;
+            }
         }
+        if( allowed_guests_plus_additional > 16 )
+        {
+            allowed_guests_plus_additional = 16;
+        }
+       
         
         var compare_url = HOMEY_ajax_vars.compare_url;
         var add_compare = HOMEY_ajax_vars.add_compare;
@@ -1121,12 +1129,7 @@ jQuery(document).ready(function ($) {
                     }
 
                 } 
-                // else if( (allow_additional_guests == 'yes') && (total_guests == allowed_guests_plus_additional) ) {
-                //     if(num_additional_guests !== '') {
-                //         $('.adult_plus').attr("disabled", true);
-                //         $('.child_plus').attr("disabled", true);
-                //     }
-                // }
+
 
                 $('input[name="guests"]').val(total_guests);
             });

@@ -67,7 +67,7 @@ $total_fields = $total_fields - 1;
 <div class="search-wrap search-banner search-banner-desktop hidden-xs">
 	<form class="clearfix" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
 		
-		<?php
+		<?php 
         if ($layout_order) { 
             foreach ($layout_order as $key=>$value) {
 

@@ -8,7 +8,7 @@ $verified = false;
 if($doc_verified) {
     $verified = true;
 }
-
+ 
 $reviews = homey_get_host_reviews(get_the_author_meta( 'ID' ));
 ?>
 <div id="host-section" class="host-section">

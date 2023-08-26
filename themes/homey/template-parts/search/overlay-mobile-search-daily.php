@@ -20,7 +20,7 @@ $class = '';
 if($advanced_filter != 1) {
     $class = 'without-filters';
 }
-
+ 
 $listing_type_pre = '';
 if(isset($_GET['listing_type'])) {
     $listing_type_pre = $_GET['listing_type'];

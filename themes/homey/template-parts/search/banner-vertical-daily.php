@@ -59,7 +59,7 @@ $layout_order = $layout_order['enabled'];
 
 $total_fields = count($layout_order);
 $total_fields = $total_fields - 1;
-?>
+?> 
 <div class="search-wrap search-banner search-banner-desktop side-search hidden-xs">
 	<form class="clearfix" action="<?php echo homey_get_search_result_page(); ?>" method="GET">
 		

@@ -211,7 +211,7 @@ if( !function_exists('homey_add_hourly_reservation') ) {
                     'message' => $local['request_sent']
                 )
             );    
-            
+             
             if(isset($current_user->user_email)){
                 $reservation_page = homey_get_template_link_dash('template/dashboard-reservations2.php');
                 $reservation_detail_link = add_query_arg( 'reservation_detail', $reservation_id, $reservation_page );
@@ -239,7 +239,7 @@ if( !function_exists('homey_add_hourly_reservation') ) {
 
             wp_die();
 
-        } else { // end $check_availability
+        } else { 
             echo json_encode(
                 array(
                     'success' => false,
